@@ -19,7 +19,7 @@ exit $PIPESTATUS
 #BEGIN_AWK1
 BEGIN { printf ("[") }
 NR>1 { printf (",") }
-/opt/rt4 {
+/opt/rt5 {
     if ($2 == "all")
        ftype = "a";
     else if ($2 == "regular")

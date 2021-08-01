@@ -1,10 +1,4 @@
 ---
-# Fix man and perldoc escape sequence processing
-- name: Push pager.sh
-  template:
-    src: pager.sh
-    dest: /etc/profile.d/pager.sh
-
 - name: Install policycoreutils-python
   yum:
     name: policycoreutils-python
@@ -15,26 +9,14 @@
 - name: Setup SELinux for RT
   include: selinux.yml
   when: selinux
-  
-- name: keepcache=1
-  replace: 
-    dest: /etc/yum.conf
-    regexp: ^keepcache=0$
-    replace: keepcache=1
 
 - name: Install CentOS Development tools
   yum:
     name: "@Development tools"
     state: installed
 
-- name: Setup TLS
-  include: tls.yml
-
 - name: Install Apache
   include: apache.yml
-
-- name: Install MariaDB
-  include: mysql.yml
 
 - name: Install RT
   include: rt.yml
