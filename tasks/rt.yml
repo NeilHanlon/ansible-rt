@@ -13,10 +13,12 @@
 
 - name: Create /opt/src
   file:
+    mode: 0755
     path: /opt/src
     state: directory
 
-- include_vars: rt_versions.yml
+- name: Include Supported Version information
+  include_vars: rt_versions.yml
 
 - name: Download RT
   get_url:
@@ -56,7 +58,8 @@
   changed_when: False
   failed_when: False
 
-- include_vars: pinned_cpan_packages.yml
+- name: Include information about cpan packages for pinning versions (?)
+  include_vars: pinned_cpan_packages.yml
 
 - block:
     - name: Install pinned CPAN packages
@@ -103,6 +106,7 @@
   template:
     src: RT_SiteConfig.pm
     dest: /opt/rt5/etc/RT_SiteConfig.pm
+    mode: 0640
     backup: yes
   notify: Restart Apache
 
@@ -115,7 +119,7 @@
     path: /opt/rt5/var/mason_data
     owner: "{{ cache_owner }}"
     group: "{{ cache_owner }}"
-    mode: o+rx
+    mode: 0750
 
 - name: Create GnuPG home directory
   file:
@@ -123,6 +127,7 @@
     state: directory
     owner: "{{ cache_owner }}"
     group: "{{ cache_owner }}"
+    mode: 0750
 
 - name: Create S/MIME home directory
   file:
@@ -130,8 +135,10 @@
     state: directory
     owner: "{{ cache_owner }}"
     group: "{{ cache_owner }}"
+    mode: 0750
 
 - name: Push rt.sh
   template:
     src: rt.sh
     dest: /etc/profile.d/rt.sh
+    mode: 0644

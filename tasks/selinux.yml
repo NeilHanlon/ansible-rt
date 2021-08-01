@@ -14,7 +14,8 @@
 # At some point, may want to roll this into a proper RT policy.
 # Right now, it's very convenient to set file contexts from Ansible without
 # needing to compile an entirely new policy module and installing it.
-- include_vars: file_contexts.yml
+- name: Setup SELinux file contexts
+  include_vars: file_contexts.yml
 
 - block:
     - name: Remove fcontext rules specific to RT
@@ -38,6 +39,7 @@
 - name: Restore default RT file contexts
   file:
     path: /opt/rt5
+    mode: 0755
     state: directory
     recurse: yes
     seuser: _default
