@@ -8,7 +8,6 @@
 
 - name: Setup SELinux for RT
   include: selinux.yml
-  when: selinux
 
 - name: Install CentOS Development tools
   yum:

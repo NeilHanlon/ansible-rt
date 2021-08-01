@@ -4,7 +4,6 @@ galaxy_info:
   description: Request tracker 5, from https://github.com/bcduggan/ansible-rt
   license: GPLv3
   min_ansible_version: 2.0.0.2
-  dependencies: [ ansible-perlbrew ]
   platforms:
   - name: EL
     versions:

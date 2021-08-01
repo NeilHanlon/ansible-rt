@@ -18,8 +18,5 @@ tls_city: Boston
 tls_organization: My Organization
 tls_organization_unit: My Project
 
-selinux: yes
-
 perl_version: 5.10.1
 cpanm_notest: false
-perlbrew_notest: false
