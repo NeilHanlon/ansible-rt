@@ -25,5 +25,3 @@
   with_fileglob:
     - ./*.fact
     - ../templates/*.fact
-    
-  

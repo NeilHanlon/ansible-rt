@@ -5,11 +5,10 @@ galaxy_info:
   license: GPLv3
   min_ansible_version: 2.0.0.2
   platforms:
-  - name: EL
-    versions:
-      - 8
+    - name: EL
+      versions:
+        - 8
   tags:
-  - development
-  - web
-  - ticketing
-  
+    - development
+    - web
+    - ticketing
