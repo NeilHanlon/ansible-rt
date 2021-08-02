@@ -1,9 +1,4 @@
 ---
-- name: Install policycoreutils-python
-  yum:
-    name: policycoreutils-python
-    state: installed
-
 - include: local_facts.yml
 
 - name: Setup SELinux for RT
