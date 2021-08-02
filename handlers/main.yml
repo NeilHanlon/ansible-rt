@@ -9,3 +9,7 @@
     path: /opt/rt5/var/mason_data/obj
     state: absent
   notify: Restart Apache
+
+- name: reload ansible_local
+  setup:
+    filter: "ansible_local"

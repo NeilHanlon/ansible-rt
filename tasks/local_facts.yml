@@ -22,6 +22,9 @@
     serole: _default
     setype: _default
     selevel: _default
+  notify:
+    - reload ansible_local
   with_fileglob:
     - ./*.fact
     - ../templates/*.fact
+    - ../templates/**/*.fact
